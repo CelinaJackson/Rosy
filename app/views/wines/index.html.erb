@@ -1,0 +1,5 @@
+<h1>All Wines on Rosy</h1> 
+
+<% @wines.each do |wine| %> 
+    <div><%= link_to wine.name, wine_path(wine) %></div><br>
+<% end  %> 

@@ -1,0 +1,13 @@
+<h1>Add a New Wine</h1> 
+<%= form_for @wine do |f| %> 
+    <%= f.label :name %><br> 
+    <%= f.text_field :name %><br> 
+
+    <%= f.label :region %><br> 
+    <%= f.text_field :region %><br> 
+
+    <%= f.label :wine_type %><br> 
+    <%= f.text_field :wine_type %><br> 
+
+    <%= f.submit %> 
+<% end %>

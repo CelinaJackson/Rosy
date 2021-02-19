@@ -1,10 +1,15 @@
 class UsersController < ApplicationController 
-    def index 
-        @users = User.all
-    end 
+
+   include UsersHelper 
 
     def show 
         @user = User.find(params[:id])
+        # if current_user.id == params[:id]
+        #     render :show 
+        # else 
+        #     flash[:alert] = "You don't have permission to access that profile"
+        #     redirect_to user_path(current_user.id)
+        # end  
     end 
 
     def new 
@@ -13,8 +18,9 @@ class UsersController < ApplicationController
 
     def create 
         @user = User.new(user_params)
-        if @user.save 
-          redirect_to user_path(@user)
+        if @user.save  
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
         else 
           render :new 
         end 
@@ -23,6 +29,6 @@ class UsersController < ApplicationController
     private 
 
     def user_params 
-        params.require(:user).permit(:first_name, :last_name, :username, :email)
+        params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation)
     end 
 end

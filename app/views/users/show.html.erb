@@ -1,0 +1,9 @@
+<h1><%= @user.first_name %>'s Rosy Ratings</h1>
+
+<%= link_to "Rate a Wine", '/ratings/new' %><br> 
+<%= link_to "Add a New Wine", '/wines/new' %><br>
+<ul> 
+<% @user.ratings.each do |rating| %> 
+    <li><%= rating.wine %></li>
+<% end  %> 
+</ul>

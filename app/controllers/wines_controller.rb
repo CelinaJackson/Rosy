@@ -13,8 +13,9 @@ class WinesController < ApplicationController
 
     def create 
         @wine = Wine.new(wine_params)
-        if @wine.save 
-            redirect_to wine_path(@wine)
+        # if logged_in? && @wine.user == current_user 
+          if @wine.save 
+           redirect_to wine_path(@wine)
         else 
             redirect_to new_wine_path 
         end 
@@ -26,8 +27,8 @@ class WinesController < ApplicationController
 
     def update
         @wine = Wine.find(params[:id])
-        if @wine.user == current_user 
-            @wine.update(wine_params)
+        # if logged_in? && @wine.user == current_user 
+           if @wine.update(wine_params)
         else 
             flash[:alert] = "You can't edit a wine someone else added."
             redirect_to wine_path(@wine)
@@ -49,6 +50,6 @@ class WinesController < ApplicationController
     private 
 
     def wine_params 
-        params.require(:wine).permit(:name, :region, :type)
+        params.require(:wine).permit(:name, :region, :wine_type)
     end 
 end
