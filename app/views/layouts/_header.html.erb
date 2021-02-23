@@ -1,0 +1,10 @@
+<% if logged_in? %>
+  Hi, <%= current_user.username %>! 
+  <%= link_to "Homepage", 'users/show' %> &nbsp
+  <%= link_to "Rate a Wine", '/ratings/new' %> &nbsp
+  <%= link_to "Add a New Wine", '/wines/new' %> &nbsp
+  <%= link_to "View all Wines", '/wines' %> &nbsp 
+  <%= link_to "View all Ratings", '/ratings' %> &nbsp
+<% else %>
+  <%= link_to “Log In”, new_sessions_path %>
+<% end %>

@@ -1,4 +1,7 @@
 class RatingsController < ApplicationController 
+
+    skip_before_action :login_required, :only => [:index]
+
     def index 
         @ratings = Rating.all
     end 
@@ -48,7 +51,7 @@ class RatingsController < ApplicationController
 
     private 
 
-    def rating_params 
-        params.require(:rating).permit(:wine, :description, :rating)
+    def rating_params
+        params.require(:rating).permit(:wine_id, :description, :rating_number)
     end 
 end

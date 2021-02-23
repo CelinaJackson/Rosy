@@ -1,9 +1,10 @@
-<h1><%= @user.first_name %>'s Rosy Ratings</h1>
+<%= render 'layouts/header' %> 
+<%= link_to "Logout", session_path, method: "delete" %> &nbsp
 
-<%= link_to "Rate a Wine", '/ratings/new' %><br> 
-<%= link_to "Add a New Wine", '/wines/new' %><br>
+<h1><%= current_user.first_name %>'s Rosy Ratings</h1>
+
 <ul> 
-<% @user.ratings.each do |rating| %> 
+<% current_user.ratings.each do |rating| %> 
     <li><%= rating.wine %></li>
 <% end  %> 
 </ul>

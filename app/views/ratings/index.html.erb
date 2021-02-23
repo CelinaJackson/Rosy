@@ -1,3 +1,4 @@
+<%= render 'layouts/header' %>
 
 <% @ratings.each do |rating| %> 
     <div><%= link_to rating.wine, rating_path(rating) %></div><br>

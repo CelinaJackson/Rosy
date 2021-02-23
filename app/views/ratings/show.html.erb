@@ -1,3 +1,6 @@
+<%= render 'layouts/header' %>
+
 <h1>Wine:</h1><%= @rating.wine %><br> 
 <h2>Description of Wine:</h2><%= @rating.description %><br>
-<h2>Overall Rating:</h2><%= @rating.rating %><br>
+<h2>Overall Rating:</h2><%= @rating.rating_number %><br>
+<%= link_to "Edit", edit_rating_path %>
