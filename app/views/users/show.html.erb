@@ -1,7 +1,6 @@
-<%= render 'layouts/header' %> 
-<%= link_to "Logout", session_path, method: "delete" %> &nbsp
+<%= link_to "Logout", session_path, method: "delete" %> &nbsp <%= render 'layouts/header' %>
 
-<h1><%= current_user.first_name %>'s Rosy Ratings</h1>
+<h1>Your Rosy Ratings</h1>
 
 <ul> 
 <% current_user.ratings.each do |rating| %> 

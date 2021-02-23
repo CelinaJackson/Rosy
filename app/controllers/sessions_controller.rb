@@ -2,12 +2,11 @@ class SessionsController < ApplicationController
     skip_before_action :login_required, :only => [:new, :create]
 
     def index
-         render 'welcome'
+
     end 
 
     def show 
-        @user = User.find_by(params[:id])
-        render 'users/show'
+        @user = User.find_by_id(params[:id])
     end 
 
     def new 
@@ -26,8 +25,7 @@ class SessionsController < ApplicationController
     end 
 
     def destroy 
-        session[:user_id] = nil 
-        redirect_to '/sessions'
+        session.delete(:user_id)
     end 
 
     private 

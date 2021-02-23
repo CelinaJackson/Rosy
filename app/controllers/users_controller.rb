@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
     def show 
         @user = User.find_by_id(params[:id])
-    
+       
         # if current_user.id == params[:id]
         #     render :show 
         # else 
@@ -21,7 +21,8 @@ class UsersController < ApplicationController
 
     def create 
         @user = User.create(user_params)
-        if @user.save  
+        if @user.valid?
+            @user.save  
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else 
