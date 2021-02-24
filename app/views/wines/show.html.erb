@@ -1,7 +1,9 @@
-<%= render 'layouts/header' %>
+<%= render 'layouts/header' %><br>
 
 Name: <%= @wine.name %><br>
 Region: <%= @wine.region %><br>
 Type: <%= @wine.wine_type %><br>
+
+<%= link_to "Rate this Wine", '/ratings/new' %> &nbsp 
 
  
