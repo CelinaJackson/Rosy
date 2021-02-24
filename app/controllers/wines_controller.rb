@@ -19,33 +19,8 @@ class WinesController < ApplicationController
             redirect_to new_wine_path 
         end 
     end 
-
-    # def edit 
-    #     @wine = Wine.find(params[:id])
-    # end 
-
-    # def update
-    #     @wine = Wine.find(params[:id])
-    #     # if logged_in? && @wine.user == current_user 
-    #        if @wine.update(wine_params)
-    #     else 
-    #         flash[:alert] = "You can't edit a wine someone else added."
-    #         redirect_to wine_path(@wine)
-    #     end 
-    # end 
-
-    # def destroy 
-    #     @wine = Wine.find(params[:id])
-    #     if @wine.user == current_user 
-    #         @wine.destroy 
-    #         flash[:alert] = "Wine was deleted."
-    #         redirect_to wines_path 
-    #     else 
-    #         flash[:alert] = "You can't delete a wine someone else added."
-    #         redirect_to wine_path(@wine)
-    #     end
-    # end
-
+ end 
+    
     private 
 
     def wine_params 

@@ -2,13 +2,22 @@
 
 <h1>Edit Rating</h1>
 <%= form_for @rating do |f| %> 
-    <%= f.label "Wine Name:" %><br>
-    <%= f.collection_select :wine, Wine.all, :name, :name %><br>
-    <%= f.label "Tell us what you thought about the wine:" %><br>
-    <%= f.text_area :description %><br>
+    <%= f.fields_for :wines do |w| %>
+        <%= w.label "Wine Name:" %><br>
+        <%= w.text_field :name %><br>
+
+        <%= w.label :region %><br>
+        <%= w.text_field :region %><br>
+
+        <%= w.label :wine_type %><br>
+        <%= w.text_field :wine_type %><br>
+    <% end %>
+
     <%= f.label "Rate this wine from 1-10" %><br>
     <%= f.select :rating_number, ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']%><br>
 
+    <%= f.label "Tell us what you thought about the wine:" %><br>
+    <%= f.text_area :description %><br>
 
     <%= f.submit %> 
 <% end %> 

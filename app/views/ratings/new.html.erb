@@ -1,6 +1,6 @@
 <%= render 'layouts/header' %>
 
-<h1>New Rating</h1>
+<h1>Rate Your Wine</h1>
 <%= form_for @rating do |f| %> 
     <%= f.fields_for :wines do |w| %>
         <%= w.label "Wine Name:" %><br>

@@ -6,13 +6,6 @@ class UsersController < ApplicationController
 
     def show 
         @user = User.find_by_id(params[:id])
-       
-        # if current_user.id == params[:id]
-        #     render :show 
-        # else 
-        #     flash[:alert] = "You don't have permission to access that profile"
-        #     redirect_to user_path(current_user.id)
-        # end  
     end 
 
     def new 

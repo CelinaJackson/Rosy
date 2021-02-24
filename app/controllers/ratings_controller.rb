@@ -15,9 +15,8 @@ class RatingsController < ApplicationController
     end 
 
     def create 
-        @rating = Rating.new(rating_params)
-        if @rating.valid?
-            @rating.save  
+        @rating = Rating.new
+        if @rating.save  
             redirect_to rating_path(@rating)
         else 
           render :new
@@ -52,7 +51,7 @@ class RatingsController < ApplicationController
 
     private 
 
-    def rating_params
-        params.require(:rating).permit(:description, :rating_number, wine_attributes: [:name, :wine_type, :region])
-    end 
+    # def rating_params
+    #     params.require(:rating).permit(:description, :rating_number, wine_attributes: [:name, :wine_type, :region])
+    # end 
 end
