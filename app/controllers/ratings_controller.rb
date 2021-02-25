@@ -3,7 +3,11 @@ class RatingsController < ApplicationController
     skip_before_action :login_required, :only => [:index]
 
     def index 
-        @ratings = Rating.all
+        if params[:user_id]
+            @ratings = User.find(params[:user_id]).ratings
+          else
+            @ratings = Rating.all
+          end
     end 
 
     def show 
@@ -11,12 +15,13 @@ class RatingsController < ApplicationController
     end 
 
     def new 
-        @rating = Rating.new
+        @rating = Rating.new(user_id: params[:user_id])
     end 
 
     def create 
-        @rating = Rating.new
-        if @rating.save  
+        @rating = Rating.new(rating_params)
+        if @rating.valid?
+            @rating.save  
             redirect_to rating_path(@rating)
         else 
           render :new
@@ -51,7 +56,7 @@ class RatingsController < ApplicationController
 
     private 
 
-    # def rating_params
-    #     params.require(:rating).permit(:description, :rating_number, wine_attributes: [:name, :wine_type, :region])
-    # end 
+    def rating_params
+        params.require(:rating).permit(:description, :wine, :rating_number)
+    end 
 end

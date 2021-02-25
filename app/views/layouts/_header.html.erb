@@ -1,5 +1,5 @@
 <% if logged_in? %> 
-  <%= link_to "Homepage", '/users/show' %> &nbsp
+  <%= link_to "Homepage", user_path(:id) %> &nbsp
   <%= link_to "Rate a Wine", '/ratings/new' %> &nbsp
   <%= link_to "Add a New Wine", '/wines/new' %> &nbsp
   <%= link_to "View all Wines", '/wines' %> &nbsp 

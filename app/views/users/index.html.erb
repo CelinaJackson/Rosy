@@ -1,0 +1,4 @@
+<h2><%= @ratings %></h2>
+ 
+  <h3>by: <%= link_to @rating.user, user_ratings_path(rating.user) %></h3>
+  <p><%= rating.description %></p>
